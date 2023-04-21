@@ -2,10 +2,10 @@ from tkinter import *
 
 window = Tk()
 window.title("Miles to Kilometers Converter")
-window.minsize(width=400, height=100)
+window.config(padx=25, pady=25)
 
 # Entry
-input_box = Entry(width=15)
+input_box = Entry(width=10)
 input_box.grid(column=2, row=1)
 
 # Labels
@@ -22,7 +22,9 @@ result_label.grid(column=2, row=2)
 
 # Buttons
 def button_clicked():
-    result_label.config(text=f"{int(input_box.get()) * 1.609344}")
+    miles = int(input_box.get())
+    km = miles * 1.609344
+    result_label.config(text=f"{km}")
 
 
 calculate_button = Button(text="Calculate", command=button_clicked)
